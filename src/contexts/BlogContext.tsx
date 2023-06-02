@@ -55,11 +55,12 @@ export const BlogPropvider = ({ children }: BlogPropviderProps) => {
         `/search/issues?q=${query}%20repo:thiagotnon/rocketseat_github_blog`
       );
       setPosts(response.data.items);
-      setLoading(false);
     } else {
+      setLoading(true);
       fetchPosts();
-      setLoading(false);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {

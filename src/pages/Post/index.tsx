@@ -28,19 +28,19 @@ interface SinglePostProps {
   body: string;
 }
 export const Post = () => {
-  const { id } = useParams();
+  const { number } = useParams();
   const [singlePost, setSinglePost] = useState<SinglePostProps>();
 
-  const fetchPost = async (id: string) => {
+  const fetchPost = async (number: string) => {
     const { data } = await api.get(
-      `repos/thiagotnon/rocketseat_github_blog/issues/${id}`
+      `repos/thiagotnon/rocketseat_github_blog/issues/${number}`
     );
     setSinglePost(data);
   };
 
   useEffect(() => {
-    if (id) fetchPost(id);
-  }, [id]);
+    if (number) fetchPost(number);
+  }, [number]);
 
   return (
     <PostMetaContainer>

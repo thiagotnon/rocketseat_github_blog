@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { Profile } from "./components/Profile";
 import { SearchForm } from "./components/SearchForm";
-import { BlogPosts } from "./styles";
+import { BlogPosts, LoadignContainer, NotFoundContainer } from "./styles";
 import { Card } from "./components/Card";
 import { Link } from "react-router-dom";
 import { BlogContext } from "../../contexts/BlogContext";
 import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 export const Blog = () => {
   const { posts, profile, loading } = useContext(BlogContext);
@@ -17,7 +19,9 @@ export const Blog = () => {
       <SearchForm total={posts.length} />
 
       {loading ? (
-        <h1>Carregando...</h1>
+        <LoadignContainer>
+          <FontAwesomeIcon icon={faCircleNotch} size="2xl" spin />
+        </LoadignContainer>
       ) : (
         <>
           {posts?.length > 0 ? (
@@ -36,7 +40,9 @@ export const Blog = () => {
               ))}
             </BlogPosts>
           ) : (
-            <h1>Nenhum post encontrado</h1>
+            <NotFoundContainer>
+              <h3>Nenhum post encontrado.</h3>
+            </NotFoundContainer>
           )}
         </>
       )}

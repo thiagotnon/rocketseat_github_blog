@@ -15,3 +15,27 @@ export const BlogPosts = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const LoadignContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: ${(props) => props.theme["base-input"]};
+  border-radius: 10px;
+
+  svg {
+    color: ${(props) => props.theme.blue};
+  }
+`;
+
+export const NotFoundContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: ${(props) => props.theme["base-input"]};
+  border-radius: 10px;
+`;

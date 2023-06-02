@@ -30,9 +30,9 @@ export const SearchForm = ({ total }: SearchFormProps) => {
     <SearchContainer>
       <div>
         <label htmlFor="search">Publicações</label>
-        {total && (
+        {total > 0 && (
           <span>
-            {total} {total <= 1 ? "publicação" : "publicações"}
+            {total <= 1 ? `${total} publicação` : `${total} publicações`}
           </span>
         )}
       </div>
