@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Hello World",
+      "description": "Hello World",
+      "createdAt": "2023-05-31T18:43:54.947Z"
+    },
+  ]
+}
