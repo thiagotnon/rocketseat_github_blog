@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { api } from "../lib/axios";
 
 export interface ProfileProps {
@@ -36,17 +42,17 @@ export const BlogPropvider = ({ children }: BlogPropviderProps) => {
   const [posts, setPosts] = useState<PostProps[]>([]);
   const [profile, setProfile] = useState({} as ProfileProps);
 
-  const fetchProfile = async () => {
+  const fetchProfile = useCallback(async () => {
     const { data } = await api.get("users/thiagotnon");
     setProfile(data);
-  };
+  }, []);
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     const { data } = await api.get(
       "repos/thiagotnon/rocketseat_github_blog/issues"
     );
     setPosts(data);
-  };
+  }, []);
 
   const searchPost = async (query: string) => {
     setLoading(true);
@@ -68,7 +74,7 @@ export const BlogPropvider = ({ children }: BlogPropviderProps) => {
     fetchProfile();
     fetchPosts();
     setLoading(false);
-  }, []);
+  }, [fetchPosts, fetchProfile]);
 
   return (
     <BlogContext.Provider value={{ profile, posts, searchPost, loading }}>

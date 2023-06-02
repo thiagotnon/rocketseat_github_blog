@@ -7,7 +7,7 @@ Nesse desafio, foi desenvolvido um blog consumindo a api do **github** que cont�
 - Listagem das issues do repositório _GitHub Issues API_
 - Consumir dados do usuário usando _GitHub Users API_
 - Pesquisa das issues utilizando _GitHub Search API_
-- Validaçao de formulário
+- Validação de formulário
 
 ### Conceitos aplicados como:
 
